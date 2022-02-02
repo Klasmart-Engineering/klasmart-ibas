@@ -5,6 +5,7 @@ from django.conf import settings
 from . import caches
 
 # TODO s:
+# register and tutorial register link as constance
 # create new qontak wa template
 # test the new wa template
 # write tests (unit and integration)
@@ -73,12 +74,31 @@ class WhatsappMessage(QontakChat):
         register_link = ""
         register_tutorial_link = ""
         return [
-            {"key": "1", "value": "register_link", "value_text": register_link},
+            {
+                "key": "1",
+                "value": "first",
+                "value_text": "alvian"
+            },
             {
                 "key": "2",
-                "value": "register_tutorial_link",
-                "value_text": register_tutorial_link,
+                "value": "last",
+                "value_text": "dk"
             },
+            {
+                "key": "3",
+                "value": "kids",
+                "value_text": "kidsloop"
+            },
+            {
+                "key": "4",
+                "value": "when",
+                "value_text": "besok"
+            },
+            {
+                "key": "5",
+                "value": "close",
+                "value_text": "mantap"
+            }
         ]
 
     def signup_info_payload(

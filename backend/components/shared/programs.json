@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_shared_programs",
+  "info": {
+    "name": "programs",
+    "icon": "american-sign-language-interpreting",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "age_label": {
+      "type": "string"
+    },
+    "grade_label": {
+      "type": "string"
+    },
+    "duration_label": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "age": {
+      "type": "richtext"
+    },
+    "grade": {
+      "type": "richtext"
+    },
+    "thumbnail_avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

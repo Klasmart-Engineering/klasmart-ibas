@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/schedule-allocations",
+      "handler": "schedule-allocation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/schedule-allocations/count",
+      "handler": "schedule-allocation.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/schedule-allocations/:id",
+      "handler": "schedule-allocation.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/schedule-allocations",
+      "handler": "schedule-allocation.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/schedule-allocations/:id",
+      "handler": "schedule-allocation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/schedule-allocations/:id",
+      "handler": "schedule-allocation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

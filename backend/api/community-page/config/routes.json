@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/community-page",
+      "handler": "community-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/community-page",
+      "handler": "community-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/community-page",
+      "handler": "community-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

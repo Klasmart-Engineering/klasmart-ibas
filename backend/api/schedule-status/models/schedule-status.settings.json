@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedule_statuses",
+  "info": {
+    "name": "Schedule Status",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

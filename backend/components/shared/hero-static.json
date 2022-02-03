@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_hero_statics",
+  "info": {
+    "name": "hero_static",
+    "icon": "grip-horizontal"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

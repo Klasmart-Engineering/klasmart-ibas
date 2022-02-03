@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_statistics",
+  "info": {
+    "name": "statistic",
+    "icon": "arrow-alt-circle-up"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

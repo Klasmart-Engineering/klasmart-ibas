@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_navbars",
+  "info": {
+    "name": "navbar",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

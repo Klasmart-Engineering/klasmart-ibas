@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "schedules_settings",
+  "info": {
+    "name": "Schedules Setting",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "max_allocation": {
+      "type": "integer"
+    }
+  }
+}

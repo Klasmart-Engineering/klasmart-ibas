@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedule_allocations",
+  "info": {
+    "name": "Schedule Allocation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "allocation": {
+      "type": "integer"
+    }
+  }
+}

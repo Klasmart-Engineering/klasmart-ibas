@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_community_groups",
+  "info": {
+    "name": "community-group",
+    "icon": "baby"
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "title": {
+      "type": "string"
+    },
+    "member": {
+      "type": "integer"
+    },
+    "discussion": {
+      "type": "integer"
+    },
+    "detail_btn_text": {
+      "type": "string"
+    }
+  }
+}

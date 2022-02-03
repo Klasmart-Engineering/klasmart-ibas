@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_faq_contents",
+  "info": {
+    "name": "faq_content",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

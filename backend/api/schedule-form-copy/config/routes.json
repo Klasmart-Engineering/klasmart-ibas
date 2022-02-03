@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/schedule-form-copy",
+      "handler": "schedule-form-copy.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/schedule-form-copy",
+      "handler": "schedule-form-copy.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/schedule-form-copy",
+      "handler": "schedule-form-copy.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

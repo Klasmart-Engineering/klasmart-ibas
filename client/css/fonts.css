@@ -1,0 +1,74 @@
+@font-face {
+  font-family: SFProRounded;
+  src: url('/static/fonts/SF-Pro-Rounded-Thin.ttf');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: SFProRounded;
+  src: url('/static/fonts/SF-Pro-Rounded-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: SFProRounded;
+  src: url('/static/fonts/SF-Pro-Rounded-Medium.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: SFProRounded;
+  src: url('/static/fonts/SF-Pro-Rounded-Regular.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: SFProRounded;
+  src: url('/static/fonts/SF-Pro-Rounded-Semibold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: SFProRounded;
+  src: url('/static/fonts/SF-Pro-Rounded-Bold.ttf');
+  font-weight: 700;
+}
+
+* {
+  font-family: SFProRounded;
+}
+
+.Calendar {
+  max-width: 100vw !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-shadow: none !important;
+}
+
+.Calendar__day.-selected {
+  border-radius: 8px !important;
+  color: black !important;
+}
+
+.Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
+  border-radius: 8px !important;
+}
+
+.Calendar__monthSelectorItem.-active .Calendar__monthSelectorItemText,
+.Calendar__yearSelectorItem.-active .Calendar__yearSelectorText {
+  color: black !important;
+}
+
+.Calendar__monthArrow {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Chevron_up_font_awesome.svg/1024px-Chevron_up_font_awesome.svg.png') !important;
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: black !important;
+  color: #333333 !important;
+}

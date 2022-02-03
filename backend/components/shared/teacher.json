@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_teachers",
+  "info": {
+    "name": "teacher",
+    "icon": "atom",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "video_url": {
+      "type": "text"
+    },
+    "teacher_name": {
+      "type": "text"
+    },
+    "teacher_experince": {
+      "type": "text"
+    },
+    "video_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/schedules-setting",
+      "handler": "schedules-setting.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/schedules-setting",
+      "handler": "schedules-setting.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/schedules-setting",
+      "handler": "schedules-setting.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

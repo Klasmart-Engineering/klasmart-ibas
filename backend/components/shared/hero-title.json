@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_hero_titles",
+  "info": {
+    "name": "Hero_title",
+    "icon": "angle-double-up"
+  },
+  "options": {},
+  "attributes": {
+    "slide_one": {
+      "type": "string"
+    },
+    "slide_two": {
+      "type": "string"
+    },
+    "slide_three": {
+      "type": "string"
+    }
+  }
+}

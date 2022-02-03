@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_body_content_forms",
+  "info": {
+    "name": "body_content_form",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "finish_label": {
+      "type": "string"
+    }
+  }
+}

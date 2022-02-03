@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seos",
+  "info": {
+    "name": "SEO",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "page": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    }
+  }
+}

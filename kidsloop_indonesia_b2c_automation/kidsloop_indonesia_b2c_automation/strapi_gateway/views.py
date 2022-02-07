@@ -8,6 +8,7 @@ from rest_framework.decorators import (
 from rest_framework.response import Response
 
 from . import tasks as strapi_tasks
+from .callbacks import switch_strapi_cms_callback
 
 
 @api_view(

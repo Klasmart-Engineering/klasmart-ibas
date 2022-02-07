@@ -35,8 +35,6 @@ class QontakChat:
         url = self.OAUTH_URL
 
         response = requests.post(url, json=payload, headers=headers)
-        if response.status_code != 200:
-            raise Exception
         return response.json()
 
     def get_access_token(self, new_access_token: bool = False) -> str:
@@ -70,35 +68,20 @@ class QontakChat:
 
 
 class WhatsappMessage(QontakChat):
-    def signup_info_body_parameters(self):
-        register_link = ""
-        register_tutorial_link = ""
+    def signup_info_body_parameters(self, name: str, when: str):
+        register_link = "https://auth.kidsloop.id/account/#/signup"
+        register_tutorial_link = "https://www.youtube.com/watch?v=fg3Fq_rP5wI"
         return [
-            {
-                "key": "1",
-                "value": "first",
-                "value_text": "alvian"
-            },
-            {
-                "key": "2",
-                "value": "last",
-                "value_text": "dk"
-            },
-            {
-                "key": "3",
-                "value": "kids",
-                "value_text": "kidsloop"
-            },
-            {
-                "key": "4",
-                "value": "when",
-                "value_text": "besok"
-            },
+            {"key": "1", "value": "pronoun", "value_text": "Bapak/Ibu"},
+            {"key": "2", "value": "name", "value_text": name},
+            {"key": "3", "value": "register_link", "value_text": register_link},
+            {"key": "4", "value": "when", "value_text": when},
             {
                 "key": "5",
-                "value": "close",
-                "value_text": "mantap"
-            }
+                "value": "closing",
+                "value_text": f", apabila ada kesulitan untuk mendaftar. "
+                f"Silakan ikuti tutorial pada link ini {register_tutorial_link}",
+            },
         ]
 
     def signup_info_payload(
@@ -122,3 +105,4 @@ class WhatsappMessage(QontakChat):
         )
         url = self.SEND_WHATSAPP_SIGNUP_INFO_URL
         response = self.send_whatsapp(url, payload)
+        return response

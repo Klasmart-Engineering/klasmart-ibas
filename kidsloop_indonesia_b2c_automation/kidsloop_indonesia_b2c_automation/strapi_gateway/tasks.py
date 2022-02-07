@@ -7,7 +7,7 @@ from .callbacks import switch_strapi_cms_callback
 logger = get_task_logger(__name__)
 
 
-@celery_app_instance.task
-def switch_strapi_cms_callback_task(callback_data):
+@celery_app_instance.task(bind=True)
+def switch_strapi_cms_callback_task(self, callback_data):
     """successfully"""
     switch_strapi_cms_callback(callback_data)

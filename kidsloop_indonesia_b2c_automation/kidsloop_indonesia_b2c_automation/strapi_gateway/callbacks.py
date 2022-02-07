@@ -2,6 +2,7 @@ from kidsloop_indonesia_b2c_automation.qontak_gateway import tasks as qontak_tas
 from kidsloop_indonesia_b2c_automation.qontak_gateway.api_requests import (
     WhatsappMessage,
 )
+from kidsloop_indonesia_b2c_automation.utils.renderers import render_date_time
 
 
 def switch_strapi_cms_callback(callback_data):
@@ -9,13 +10,17 @@ def switch_strapi_cms_callback(callback_data):
     event = callback_data["event"]
     phone = callback_data["entry"]["phone"]
     name = callback_data["entry"]["parent_name"]
+    when = render_date_time(
+        callback_data["entry"]["date"], callback_data["entry"]["time"]
+    )
     if model == "schedule" and event == "entry.create":
         # send wa
         wa_message = WhatsappMessage()
-        body_parameters = wa_message.signup_info_body_parameters()
-        wa_message.send_signup_info(
-            phone_number=phone, to_name=name, body_parameters=body_parameters
+        body_parameters = wa_message.signup_info_body_parameters(name, when)
+        r = wa_message.send_signup_info(
+            phone_number=f"62{phone}", to_name=name, body_parameters=body_parameters
         )
+        print(f"send_signup_info status: {r.json()['status']}")
     return
 
 

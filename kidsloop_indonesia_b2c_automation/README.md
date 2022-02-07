@@ -42,6 +42,12 @@ Running type checks with mypy:
 
     $ docker-compose -f local.yml run --rm django mypy kidsloop_indonesia_b2c_automation
 
+### Code Auto format
+
+Running auto format with black:
+
+    $ docker-compose -f local.yml run --rm django black kidsloop_indonesia_b2c_automation
+
 #### Running tests with pytest
 
     $ docker-compose -f local.yml run --rm django pytest

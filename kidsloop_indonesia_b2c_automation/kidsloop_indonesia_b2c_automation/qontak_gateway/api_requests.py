@@ -69,19 +69,9 @@ class QontakChat:
 
 class WhatsappMessage(QontakChat):
     def signup_info_body_parameters(self, name: str, when: str):
-        register_link = "https://auth.kidsloop.id/account/#/signup"
-        register_tutorial_link = "https://www.youtube.com/watch?v=fg3Fq_rP5wI"
         return [
-            {"key": "1", "value": "pronoun", "value_text": "Bapak/Ibu"},
-            {"key": "2", "value": "name", "value_text": name},
-            {"key": "3", "value": "register_link", "value_text": register_link},
-            {"key": "4", "value": "when", "value_text": when},
-            {
-                "key": "5",
-                "value": "closing",
-                "value_text": f", apabila ada kesulitan untuk mendaftar. "
-                f"Silakan ikuti tutorial pada link ini {register_tutorial_link}",
-            },
+            {"key": "1", "value": "name", "value_text": name},
+            {"key": "2", "value": "when", "value_text": when},
         ]
 
     def signup_info_payload(

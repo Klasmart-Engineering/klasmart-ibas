@@ -21,7 +21,7 @@ def switch_strapi_cms_callback(callback_data):
             phone_number=f"62{phone}", to_name=name, body_parameters=body_parameters
         )
         print(f"send_signup_info status: {r.json()['status']}")
-    return
+        return r
 
 
 # callback_data = {

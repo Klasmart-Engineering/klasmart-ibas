@@ -27,3 +27,4 @@ EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+QONTAK_CHAT_BASE_URL = "http://testserver"

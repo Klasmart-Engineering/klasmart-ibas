@@ -43,7 +43,8 @@ def test_switch_strapi_cms_callback(*args):
     assert switch_strapi_cms_callback(callback_data)
 
 
-@patch('kidsloop_indonesia_b2c_automation.strapi_gateway.callbacks.WhatsappMessage.send_signup_info', 
+@patch(
+    "kidsloop_indonesia_b2c_automation.strapi_gateway.callbacks.WhatsappMessage.send_signup_info",
     return_value=Mock(status_code=201, json=lambda: {"status": "success"}),
 )
 def test_switch_strapi_cms_callback_task(*args):

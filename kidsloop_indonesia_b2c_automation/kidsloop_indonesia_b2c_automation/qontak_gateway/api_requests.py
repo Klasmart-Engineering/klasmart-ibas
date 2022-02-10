@@ -5,12 +5,7 @@ from django.conf import settings
 from . import caches
 
 # TODO s:
-# register and tutorial register link as constance
-# create new qontak wa template
-# test the new wa template
-# write tests (unit and integration)
 # serializers
-# mock server url for failed scenario
 # implement 2 factor auth for admin users
 
 

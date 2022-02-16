@@ -40,7 +40,7 @@ def test_strapi_cms_callback_success(*args):
     return_value=Mock(status_code=201, json=lambda: {"status": "success"}),
 )
 def test_switch_strapi_cms_callback(*args):
-    assert switch_strapi_cms_callback(callback_data)
+    switch_strapi_cms_callback(callback_data)
 
 
 @patch(

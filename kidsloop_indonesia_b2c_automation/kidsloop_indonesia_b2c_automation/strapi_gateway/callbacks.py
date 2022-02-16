@@ -1,3 +1,4 @@
+from kidsloop_indonesia_b2c_automation.email_service.emails import Email
 from kidsloop_indonesia_b2c_automation.qontak_gateway import tasks as qontak_tasks
 from kidsloop_indonesia_b2c_automation.qontak_gateway.api_requests import (
     WhatsappMessage,
@@ -21,7 +22,8 @@ def switch_strapi_cms_callback(callback_data):
             phone_number=f"62{phone}", to_name=name, body_parameters=body_parameters
         )
         print(f"send_signup_info status: {r.json()['status']}")
-        return r
+        email = Email()
+        email.send_email_new_register_to_sales()
 
 
 # callback_data = {

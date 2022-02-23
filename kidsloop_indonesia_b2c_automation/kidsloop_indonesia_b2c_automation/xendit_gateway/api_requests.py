@@ -15,7 +15,8 @@ class Xendit:
         self, schedule_id, parent_email, parent_name, parent_phone
     ):
         amount = 750_000
-        external_id = f"E1-00{schedule_id}"
+        biggest_invoice_id = settings.XENDIT_BIGGEST_INVOICE_ID
+        external_id = f"E1-00{schedule_id + biggest_invoice_id}"
         description = "Invoice Demo #123"
         return {
             "external_id": external_id,

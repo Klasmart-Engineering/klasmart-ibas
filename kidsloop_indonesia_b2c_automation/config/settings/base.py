@@ -330,3 +330,4 @@ QONTAK_WHATSAPP_CHANNEL_INTEGRATION_ID = env.str(
 # ------------------------------------------------------------------------------
 XENDIT_BASE_URL = env.str("XENDIT_BASE_URL", "https://api.xendit.co")
 XENDIT_TOKEN = env.str("XENDIT_TOKEN")
+XENDIT_BIGGEST_INVOICE_ID = env.int("XENDIT_BIGGEST_INVOICE_ID")

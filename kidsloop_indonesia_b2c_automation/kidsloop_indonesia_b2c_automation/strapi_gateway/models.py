@@ -1,3 +1,6 @@
+import sched
 from django.db import models
 
-# Create your models here.
+
+class ScheduleInvoce(models.Model):
+    schedule_id = models.BigIntegerField()

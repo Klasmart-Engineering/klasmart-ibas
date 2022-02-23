@@ -325,3 +325,8 @@ QONTAK_WHATSAPP_SIGNUP_INFO_TEMPLATE_ID = env.str(
 QONTAK_WHATSAPP_CHANNEL_INTEGRATION_ID = env.str(
     "QONTAK_WHATSAPP_CHANNEL_INTEGRATION_ID"
 )
+
+# Xendit
+# ------------------------------------------------------------------------------
+XENDIT_BASE_URL = env.str("XENDIT_BASE_URL", "https://api.xendit.co")
+XENDIT_TOKEN = env.str("XENDIT_TOKEN")

@@ -278,3 +278,4 @@ kidsloop_indonesia_b2c_automation/media/
 .envs/*
 !.envs/.local/
 db.sqlite3
+.vscode

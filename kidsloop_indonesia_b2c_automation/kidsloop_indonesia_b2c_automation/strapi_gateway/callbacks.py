@@ -48,7 +48,7 @@ def switch_strapi_cms_callback(callback_data):
         # create invoice
         print("create invoice")
         xendit = Xendit()
-        payload = xendit.create_invoce_payload(schedule_id, parent_email, name, phone)
+        payload = xendit.create_invoce_payload(schedule_id, parent_email, name, f"0{phone}")
         r = xendit.create_invoice(payload)
         print(f"xendit create_invoice status: {r.json()['status']}")
 

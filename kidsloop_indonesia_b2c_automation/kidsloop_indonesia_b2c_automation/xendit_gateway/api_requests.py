@@ -1,6 +1,7 @@
 import requests
 
 from django.conf import settings
+from django.utils import timezone
 
 
 class Xendit:
@@ -11,13 +12,21 @@ class Xendit:
         access_token = settings.XENDIT_TOKEN
         return access_token
 
+    def create_invoice_id(self, schedule_id):
+        now_date = timezone.now()
+        now_month_year = now_date.strftime("%m%y")
+
+        biggest_invoice_id = settings.XENDIT_BIGGEST_INVOICE_ID
+        invoice_queue_id = str(schedule_id + biggest_invoice_id)
+        return f"I{now_month_year}{invoice_queue_id.rjust(4, '0')}"
+
     def create_invoce_payload(
         self, schedule_id, parent_email, parent_name, parent_phone
     ):
         amount = 750_000
-        biggest_invoice_id = settings.XENDIT_BIGGEST_INVOICE_ID
-        external_id = f"E1-00{schedule_id + biggest_invoice_id}"
-        description = "Invoice Demo #123"
+
+        external_id = self.create_invoice_id(schedule_id)
+        description = "Invoice Demo #123"  # TODO: dynamic desc for next sprint
         return {
             "external_id": external_id,
             "amount": amount,

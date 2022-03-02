@@ -29,6 +29,23 @@ CACHES = {
 EMAIL_BACKEND = env(
     "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
 )
+if EMAIL_BACKEND == "anymail.backends.amazon_ses.EmailBackend":
+    AWS_ACCESS_KEY_ID = env("DJANGO_AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = env("DJANGO_AWS_SECRET_ACCESS_KEY")
+    AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default="ap-southeast-1")
+    ANYMAIL = {
+        "AMAZON_SES_CLIENT_PARAMS": {
+            # # example: override normal Boto credentials specifically for Anymail
+            "aws_access_key_id": AWS_ACCESS_KEY_ID,
+            "aws_secret_access_key": AWS_SECRET_ACCESS_KEY,
+            "region_name": "ap-southeast-1",
+        },
+    }
+
+    DEFAULT_FROM_EMAIL = env(
+        "DJANGO_DEFAULT_FROM_EMAIL",
+        default="Kidsloop Indonesia B2C Automation <noreply@badanamu.co.id>",
+    )
 
 # WhiteNoise
 # ------------------------------------------------------------------------------

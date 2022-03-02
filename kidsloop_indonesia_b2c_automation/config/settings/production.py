@@ -102,7 +102,7 @@ MEDIA_URL = f"https://{aws_s3_domain}/media/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
     "DJANGO_DEFAULT_FROM_EMAIL",
-    default="Kidsloop Indonesia B2C Automation <noreply@indonesia-b2c.kidsloop.co.id>",
+    default="Kidsloop Indonesia B2C Automation <noreply@badanamu.co.id>",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)

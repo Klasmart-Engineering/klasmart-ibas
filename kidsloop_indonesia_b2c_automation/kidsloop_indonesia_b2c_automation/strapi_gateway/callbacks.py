@@ -34,9 +34,10 @@ def switch_strapi_cms_callback(callback_data):
         print(f"qontak send_signup_info status: {r.json()['status']}")
 
         email = Email()
-        email.send_email_new_register_to_sales()
+        email.send_email_new_register_to_sales(callback_data)
+        print(f"ses send_email_new_register_to_sales sent")
     elif model == "schedule" and event == "entry.update" and status == "interested":
-        # check schedule id if invoice already created
+        # check schedule id if invoice already created if not, then create
         _, created = models.ScheduleInvoce.objects.get_or_create(
             schedule_id=schedule_id
         )
@@ -48,11 +49,11 @@ def switch_strapi_cms_callback(callback_data):
         # create invoice
         print("create invoice")
         xendit = Xendit()
-        payload = xendit.create_invoce_payload(schedule_id, parent_email, name, f"0{phone}")
+        payload = xendit.create_invoce_payload(
+            schedule_id, parent_email, name, f"0{phone}"
+        )
         r = xendit.create_invoice(payload)
         print(f"xendit create_invoice status: {r.json()['status']}")
-
-        # save schedule invoice to db
 
 
 # callback_data = {

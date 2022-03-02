@@ -37,7 +37,7 @@ def qontak_oauth_token_success(request):
 @authentication_classes([])
 @permission_classes([])
 def qontak_send_whatsapp(request):
-    response = request.data
+    response = {"status": "sent", **request.data}
     print("response", response)
 
     return Response(response, status=200)

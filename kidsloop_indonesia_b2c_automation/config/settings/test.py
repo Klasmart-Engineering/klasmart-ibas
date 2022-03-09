@@ -28,3 +28,4 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Your stuff...
 # ------------------------------------------------------------------------------
 QONTAK_CHAT_BASE_URL = "http://testserver"
+XENDIT_BASE_URL = "http://testserver"

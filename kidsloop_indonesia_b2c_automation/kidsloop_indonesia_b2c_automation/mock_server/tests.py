@@ -15,6 +15,7 @@ callback_data = {
         "time": "18:00:00",
         "parent_name": "alvian",
         "phone": "085840002746",
+        "email": "alvian@kidsloop.live"
     },
 }
 

@@ -17,7 +17,8 @@ class Email:
         to_emails = [
             f"{email_to}",
         ]
-        subject = "New Incoming Student"
+        parent_name = callback_data["entry"]["email"]
+        subject = f"New Incoming Student from Parent {parent_name}"
         send_mail(subject, text_body, from_email, to_emails)
 
     def new_schedule_register_rendered_data(self, callback_data):

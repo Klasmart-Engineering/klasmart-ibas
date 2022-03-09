@@ -17,7 +17,7 @@ class Email:
         to_emails = [
             f"{email_to}",
         ]
-        parent_name = callback_data["entry"]["email"]
+        parent_name = callback_data["entry"]["parent_name"]
         subject = f"New Incoming Student from Parent {parent_name}"
         send_mail(subject, text_body, from_email, to_emails)
 

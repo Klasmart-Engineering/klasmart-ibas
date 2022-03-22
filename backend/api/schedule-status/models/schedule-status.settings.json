@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "schedule_statuses",
   "info": {
-    "name": "Schedule Status",
+    "name": "4. Schedule Status",
     "description": ""
   },
   "options": {

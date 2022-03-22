@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "schedules",
   "info": {
-    "name": "Schedule",
+    "name": "2. Schedule",
     "description": ""
   },
   "options": {
@@ -32,6 +32,9 @@
     },
     "schedule_status": {
       "model": "schedule-status"
+    },
+    "package": {
+      "model": "package"
     }
   }
 }

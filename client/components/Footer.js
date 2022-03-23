@@ -89,6 +89,7 @@ export default function Footer() {
                         {({ active }) => (
                           <ScrollLink
                             to="bada-rhyme"
+                            onClick={() => router.push('/#bada-rhyme')}
                             className={`${active && 'bg-white cursor-pointer'}`}
                           >
                             <div className="mt-4">Bada Rhyme</div>
@@ -102,6 +103,7 @@ export default function Footer() {
                         {({ active }) => (
                           <ScrollLink
                             to="bada-rhyme"
+                            onClick={() => router.push('/#bada-genius')}
                             className={`${active && 'bg-white cursor-pointer'}`}
                           >
                             <div>Bada Genius</div>

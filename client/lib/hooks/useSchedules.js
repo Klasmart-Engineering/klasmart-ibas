@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { atom, useRecoilState } from 'recoil'
 import moment from 'moment'
-import { conforms, groupBy } from 'lodash'
+import { groupBy } from 'lodash'
 import {
   scheduleQuery,
   schedulesQuery,

@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { getCookie } from '@/lib/utils/cookies'
 
-let _apiHost = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://badanamu-api.herokuapp.com'
+let _apiHost = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://localhost:1337/'
 
 export function url(path) {
   if (!path) path = ''
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://badanamu-api.herokuapp.com'}${path}`
+  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://localhost:1337/'}${path}`
 }
 
 export function customApi() {

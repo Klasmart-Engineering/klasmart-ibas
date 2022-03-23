@@ -12,15 +12,12 @@ gcloud run deploy [SERVICE] --image IMAGE_URL --update-env-vars KEY1=VALUE1,KEY2
 deploy
 
 if m1 chip
-
 1. docker build --platform linux/amd64 . -t kidsloop:latest  
-   else
+else
 1. docker build . -t kidsloop:latest
-1. docker run -e PORT=8080 -p 3000:8080 kidsloop:latest
-1. docker tag kidsloop gcr.io/temporal-storm-342107/kidsloop:latest
-1. docker push gcr.io/temporal-storm-342107/kidsloop:latest
-1. gcloud beta run deploy --image gcr.io/temporal-storm-342107/kidsloop:latest --project temporal-storm-342107 --platform managed --region asia-southeast2 --allow-unauthenticated
+2. docker run -e PORT=8080 -p 3000:8080 kidsloop:latest
+3. docker tag kidsloop gcr.io/temporal-storm-342107/kidsloop:latest
+4. docker push gcr.io/temporal-storm-342107/kidsloop:latest
+5. gcloud beta run deploy --image gcr.io/temporal-storm-342107/kidsloop:latest --project temporal-storm-342107 --platform managed --region asia-southeast2 --allow-unauthenticated
 
-## Deploy to Google Cloud Run
-
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+<!-- [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run) -->

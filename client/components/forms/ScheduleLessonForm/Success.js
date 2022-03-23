@@ -43,7 +43,7 @@ const ScheduleLessonFormSuccess = ({ className, style, setShowEmail }) => {
                 />
               )}
             </div>
-            <h2 className="text-2xl pb-3">{contentSuccess?.body_content_form?.thank_title}</h2>
+            <h2 className="text-2xl pb-3">{contentSuccess?.body_content_form?.finish_label}</h2>
             <p className="text-lg text-gray-500">
               <Markdown>{contentSuccess?.body_content_form?.description}</Markdown>
             </p>

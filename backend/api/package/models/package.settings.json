@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "package_name": {
       "type": "string"
     },
     "description": {

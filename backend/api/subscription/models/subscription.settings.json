@@ -17,10 +17,10 @@
       "required": true
     },
     "start_date": {
-      "type": "datetime"
+      "type": "date"
     },
     "end_date": {
-      "type": "datetime"
+      "type": "date"
     },
     "paid_price": {
       "type": "biginteger"
@@ -38,6 +38,11 @@
     },
     "duration_number": {
       "type": "integer"
+    },
+    "is_free_trial": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

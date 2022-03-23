@@ -335,3 +335,5 @@ XENDIT_BIGGEST_INVOICE_ID = env.int("XENDIT_BIGGEST_INVOICE_ID")
 # ------------------------------------------------------------------------------
 B2C_OPS_EMAIL = env.str("B2C_OPS_EMAIL")
 LANDING_PAGE_ADMIN_URL = env.str("LANDING_PAGE_ADMIN_URL")
+# STRAPI
+STRAPI_BASE_URL = env.str("STRAPI_BASE_URL")

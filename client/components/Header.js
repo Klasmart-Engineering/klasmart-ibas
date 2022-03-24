@@ -145,6 +145,7 @@ const Header = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <ScrollLink
+                            onClick={() => router.push('/#bada-rhyme')}
                             to="bada-rhyme"
                             className={`${active && 'bg-white cursor-pointer'}`}
                           >
@@ -158,6 +159,7 @@ const Header = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <ScrollLink
+                            onClick={() => router.push('/#bada-genius')}
                             to="bada-genius"
                             className={`${active && 'bg-white cursor-pointer'}`}
                           >

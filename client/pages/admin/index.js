@@ -44,7 +44,7 @@ const HomePage = () => {
     }
 
     privateApi()
-      .get('https://badanamu-api.herokuapp.com/schedules', {
+      .get('schedules', {
         params: { ...formatedParams, _sort: 'date:ASC', _limit: -1 },
       })
       .then((res) => {
@@ -57,7 +57,7 @@ const HomePage = () => {
     if (filter?.start) params.push(`start=${filter.start}`)
     if (filter?.end) params.push(`end=${filter.end}`)
 
-    window.open(`https://badanamu-api.herokuapp.com/download_schedules?${params.join('&')}`)
+    window.open(url(`download_schedules?${params.join('&')}`))
   }
 
   const columns = [

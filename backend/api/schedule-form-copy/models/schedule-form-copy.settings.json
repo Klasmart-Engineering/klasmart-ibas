@@ -40,14 +40,6 @@
         }
       }
     },
-    "select_date_label": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "form_primary_btn": {
       "type": "string",
       "pluginOptions": {
@@ -195,6 +187,24 @@
       "type": "string"
     },
     "finish_btn": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "label_select_date_time": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.label-select-date-time"
+    },
+    "button_remove_field_child": {
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -1,14 +1,28 @@
 import { PageSEO } from '@/components/SEO'
 import { IoChevronDown, IoChevronUpOutline, IoSearchOutline } from 'react-icons/io5'
-import { useState } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 import axios from 'axios'
 import LayoutWrapper from '@/components/LayoutWrapper'
-import { url } from '../lib/utils/requests'
+import { api, url } from '../lib/utils/requests'
+import Markdown from '../components/Markdown'
+import { useRouter } from 'next/router'
 
 export default function Faq(props) {
   const { content = {} } = props
   const [selectedFaq, setSelectedFaq] = useState(false)
+  const [contentFaq, setContentFaq] = useState([])
+  const router = useRouter()
+
+  const locale = useMemo(() => {
+    return router?.locale || 'en'
+  }, [router?.locale])
+
+  const loadContentFaq = () => {
+    api()
+      .get(`faq-contents?_locale=${locale}`)
+      .then((res) => setContentFaq(res.data))
+  }
 
   const toogleAccordion = (i) => {
     if (i === selectedFaq) {
@@ -17,6 +31,10 @@ export default function Faq(props) {
     }
     setSelectedFaq(i)
   }
+
+  useEffect(() => {
+    loadContentFaq()
+  }, [locale])
 
   return (
     <LayoutWrapper>
@@ -54,10 +72,10 @@ export default function Faq(props) {
         </div>
 
         <div className="w-full md:max-w-6xl md:mx-auto md:mt-12">
-          {content?.faq_content?.map((content, i) => (
+          {contentFaq.map((content, i) => (
             <>
               <button
-                className="border-b pb-6 w-full flex justify-between items-center px-8 hover:bg-gray-100 cursor-pointer"
+                className="border-b border-t pb-6 w-full flex justify-between items-center px-8 hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
                   toogleAccordion(i)
                 }}
@@ -72,9 +90,9 @@ export default function Faq(props) {
               </button>
               <div
                 style={{ display: selectedFaq === i ? 'block' : 'none' }}
-                className="px-8 pt-9 text-left"
+                className="px-8 py-9 text-left"
               >
-                <p>{content.description}</p>
+                <Markdown>{content.description}</Markdown>
               </div>
             </>
           ))}

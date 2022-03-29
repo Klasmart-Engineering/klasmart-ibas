@@ -13,16 +13,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@add-github-action
+      - uses: actions/checkout@v3
 
-      - name: Deploy Using ssh
-        uses: evik.santika/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            cd ~/kidsloop-ibas/kidsloop_indonesia_b2c_automation
-            git pull origin add-github-action
-            git status
+      - name: Deploy Using runner hosted
+        run: |
+          cd ~/kidsloop-ibas/kidsloop_indonesia_b2c_automation
+          git pull origin add-github-action
+          git status
+          docker-compose -f local.yml up -d --build

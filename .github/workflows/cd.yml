@@ -16,11 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Deploy Using runner hosted
+      - name: Update Code
         run: |
           cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
           git fetch
-          git checkout feature/github-action
-          git pull
+          git pullt origin feature/github-action
           git status
-          docker-compose -f local.yml up -d --build
+          
+      - name: Run Docker Compose
+        run: docker-compose -f /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation/local.yml up -d --build

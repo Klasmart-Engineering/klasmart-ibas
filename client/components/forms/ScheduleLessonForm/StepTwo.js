@@ -14,7 +14,7 @@ import { url } from '../../../lib/utils/requests'
 const validationSchema = yup.object({
   parent_name: yup.string().required('Required'),
   email: yup.string().email('Format not correct').required('Required'),
-  phone: yup.string().required('Required').min(9, 'Minimum 10 digit'),
+  phone: yup.string().required('Required').min(9, 'Minimum 9 digit'),
 })
 
 const ScheduleLessonFormStepTwo = (props) => {

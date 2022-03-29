@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_label_select_date_times",
+  "info": {
+    "name": "label_select_date_time",
+    "icon": "equals"
+  },
+  "options": {},
+  "attributes": {
+    "select_label": {
+      "type": "string"
+    },
+    "label_select_date": {
+      "type": "string"
+    },
+    "label_select_time": {
+      "type": "string"
+    },
+    "description_started": {
+      "type": "string"
+    }
+  }
+}

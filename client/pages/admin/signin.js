@@ -9,7 +9,7 @@ const SigninPage = () => {
 
   const onSubmit = (values) => {
     api()
-      .post('https://badanamu-api.herokuapp.com/auth/local', {
+      .post('auth/local', {
         identifier: values.email,
         password: values.password,
       })

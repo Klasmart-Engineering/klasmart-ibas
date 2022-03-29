@@ -10,7 +10,7 @@ on:
 
 jobs:
   cd:
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@add-github-action

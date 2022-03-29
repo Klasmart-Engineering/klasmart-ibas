@@ -10,7 +10,7 @@ on:
 
 jobs:
   cd:
-    runs-on: landing-page-dev
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@add-github-action

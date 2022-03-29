@@ -7,7 +7,8 @@ on:
   pull_request:
     branches:
       - develop
-
+  workflow_dispatch:
+  
 jobs:
   cd:
     runs-on: self-hosted

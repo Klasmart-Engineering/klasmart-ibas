@@ -10,7 +10,7 @@ on:
 
 jobs:
   cd:
-    runs-on: ubuntu-latest
+    runs-on: landing-page-dev
 
     steps:
       - uses: actions/checkout@add-github-action
@@ -26,5 +26,3 @@ jobs:
             cd ~/kidsloop-ibas/kidsloop_indonesia_b2c_automation
             git pull origin add-github-action
             git status
-            yarn install
-            yarn build

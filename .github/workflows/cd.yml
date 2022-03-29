@@ -25,3 +25,6 @@ jobs:
 
       - name: Run Docker Compose
         run: docker-compose -f /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation/local.yml up -d --build
+      
+      - name: Clean up
+        run: docker system prune --force

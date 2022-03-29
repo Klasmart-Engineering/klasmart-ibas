@@ -19,6 +19,7 @@ jobs:
       - name: Deploy Using runner hosted
         run: |
           cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
+          git fecth
           git pull feature/github-action
           git status
           docker-compose -f local.yml up -d --build

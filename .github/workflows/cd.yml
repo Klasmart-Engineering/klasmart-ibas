@@ -1,4 +1,4 @@
-name: cd
+name: CD
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   cd:
-    runs-on: self-hosted
+    runs-on: landing-page-dev
 
     steps:
       - uses: actions/checkout@v3

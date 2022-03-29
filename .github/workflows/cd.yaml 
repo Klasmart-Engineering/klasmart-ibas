@@ -1,0 +1,23 @@
+name: cd
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  cd:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy Using runner hosted
+        run: |
+          cd ~/kidsloop-ibas/kidsloop_indonesia_b2c_automation
+          git pull develop
+          git status
+          docker-compose -f local.yml up -d --build

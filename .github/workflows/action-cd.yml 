@@ -3,17 +3,17 @@ name: cd
 on:
   push:
     branches:
-      - develop
+      - add-github-action
   pull_request:
     branches:
-      - develop
+      - add-github-action
 
 jobs:
   cd:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@develop
+      - uses: actions/checkout@add-github-action
 
       - name: Deploy Using ssh
         uses: evik.santika/ssh-action@master
@@ -24,7 +24,7 @@ jobs:
           port: 22
           script: |
             cd ~/kidsloop-ibas/kidsloop_indonesia_b2c_automation
-            git pull origin develop
+            git pull origin add-github-action
             git status
             yarn install
             yarn build

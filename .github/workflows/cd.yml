@@ -3,12 +3,12 @@ name: cd
 on:
   push:
     branches:
-      - develop
+      - feature/github-action
   pull_request:
     branches:
-      - develop
+      - feature/github-action
   workflow_dispatch:
-  
+
 jobs:
   cd:
     runs-on: self-hosted
@@ -19,6 +19,6 @@ jobs:
       - name: Deploy Using runner hosted
         run: |
           cd ~/kidsloop-ibas/kidsloop_indonesia_b2c_automation
-          git pull develop
+          git pull feature/github-action
           git status
           docker-compose -f local.yml up -d --build

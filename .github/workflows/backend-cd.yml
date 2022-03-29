@@ -1,12 +1,16 @@
-name: CD
+name: Bancend CD
 
 on:
   push:
     branches:
       - feature/github-action
+    paths:
+      - 'backend/**'
   pull_request:
     branches:
       - feature/github-action
+    paths:
+      - 'backend/**'
   workflow_dispatch:
 
 jobs:
@@ -18,13 +22,13 @@ jobs:
 
       - name: Update Code
         run: |
-          cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
+          cd /home/evik.santika/kidsloop-ibas/backend
           git fetch
           git pull origin feature/github-action
           git status
 
       - name: Run Docker Compose
-        run: docker-compose -f /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation/local.yml up -d --build
+        run: docker-compose -f /home/evik.santika/kidsloop-ibas/backend/docker-compose-dev.yml up -d --build
       
       - name: Clean up
         run: docker system prune --force

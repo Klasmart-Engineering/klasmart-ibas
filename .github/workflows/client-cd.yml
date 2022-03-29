@@ -1,0 +1,34 @@
+name: Client CD
+
+on:
+  push:
+    branches:
+      - feature/github-action
+    paths:
+      - 'client/**'
+  pull_request:
+    branches:
+      - feature/github-action
+    paths:
+      - 'client/**'
+  workflow_dispatch:
+
+jobs:
+  cd:
+    runs-on: landing-page-dev
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update Code
+        run: |
+          cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
+          git fetch
+          git pull origin feature/github-action
+          git status
+
+      - name: Run Docker Compose
+        run: docker-compose -f /home/evik.santika/kidsloop-ibas/client/docker-compose-dev.yml up -d --build
+      
+      - name: Clean up
+        run: docker system prune --force

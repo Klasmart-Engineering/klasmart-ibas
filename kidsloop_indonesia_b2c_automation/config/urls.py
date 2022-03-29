@@ -9,6 +9,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
 from kidsloop_indonesia_b2c_automation.strapi_gateway import views as strapi_views
+from kidsloop_indonesia_b2c_automation.xendit_gateway import views as xendit_views
 
 
 urlpatterns = [
@@ -17,6 +18,11 @@ urlpatterns = [
         "strapi_cms_callback/",
         strapi_views.strapi_cms_callback,
         name="strapi_cms_callback",
+    ),
+    path(
+        "xendit_invoice_callback/",
+        xendit_views.xendit_invoice_callback,
+        name="xendit_invoice_callback",
     ),
     path("mock-server/", include("kidsloop_indonesia_b2c_automation.mock_server.urls")),
     # Django Admin, use {% url 'admin:index' %}

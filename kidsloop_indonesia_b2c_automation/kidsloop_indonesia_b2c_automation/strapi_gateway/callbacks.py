@@ -41,7 +41,7 @@ def switch_strapi_cms_callback(callback_data):
         print(f"ses send_email_new_register_to_sales sent")
     elif model == "schedule" and event == "entry.update" and status == "interested":
         # check schedule id if invoice already created if not, then create
-        _, created = models.ScheduleInvoce.objects.get_or_create(
+        schedule_invoice, created = models.ScheduleInvoce.objects.get_or_create(
             schedule_id=schedule_id
         )
         if not created:
@@ -56,7 +56,11 @@ def switch_strapi_cms_callback(callback_data):
             schedule_id, parent_email, name, f"0{phone}"
         )
         r = xendit.create_invoice(payload)
-        print(f"xendit create_invoice status: {r.json()['status']}")
+        response = r.json()
+        print(f"xendit create_invoice status: {r.json()['status']} {r.status_code}")
+        if r.status_code == 201:
+            schedule_invoice.invoice_id = response["id"]
+            schedule_invoice.save()
 
     elif model == "schedule" and event == "entry.update" and status == "free_trial":
         # _, created = models.ScheduleFreeTrial.objects.get_or_create(

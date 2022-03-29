@@ -116,7 +116,7 @@ const ScheduleLessonFormStepThree = (props) => {
                 {contentForm.form_child_title} {i + 1}{' '}
                 {fields.length > 1 && (
                   <button className="text-sm text-red-500" onClick={() => remove(i)}>
-                    Remove
+                    {contentForm.button_remove_field_child}
                   </button>
                 )}
               </div>

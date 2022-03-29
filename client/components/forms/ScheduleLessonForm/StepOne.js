@@ -1,24 +1,17 @@
-import Button from '@/components/button/Button'
-import { useEffect, useMemo, useState } from 'react'
-import { Oval, ThreeDots } from 'react-loading-icons'
-import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker'
-import Slider from 'react-slick'
-import moment from 'moment'
-import { useSchedules } from '../../../lib/hooks/useSchedules'
-import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5'
+import Button from '@/components/button/Button'
+import Slider from 'react-slick'
 import axios from 'axios'
-import { useRouter } from 'next/router'
+import moment from 'moment'
+import { Calendar, utils } from '@hassanmojab/react-modern-calendar-datepicker'
+import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5'
+import { ThreeDots } from 'react-loading-icons'
 import { url } from '../../../lib/utils/requests'
-
-const schema = yup
-  .object({
-    date: yup.string().required(),
-    times: yup.string().required(),
-  })
-  .required()
+import { useEffect, useMemo, useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
+import { useRouter } from 'next/router'
+import { useSchedules } from '../../../lib/hooks/useSchedules'
+import calendarIdLocale from '../../../lib/utils/calendarIdLocale'
 
 const NextArrow = (props) => {
   const { onClick } = props
@@ -149,9 +142,12 @@ const ScheduleLessonFormStepOne = (props) => {
                       }
                       minimumDate={getMinimumDate()}
                       onChange={({ day, month, year }) => {
+                        if (day < 10) day = `0${day}`
+                        if (month < 10) month = `0${month}`
                         field.onChange(moment(`${year}-${month}-${day}`).format('YYYY-MM-DD'))
                       }}
                       shouldHighlightWeekends
+                      locale={locale === 'id' ? calendarIdLocale : 'en'}
                     />
                   )}
                 />
@@ -207,7 +203,7 @@ const ScheduleLessonFormStepOne = (props) => {
           <p className="text-center pb-0 uppercase">
             {!!watchTime && !!watchDate
               ? moment(watchDate).format('ddd, MMMM Do') + ` • ${watchTime}`
-              : `${contentForm.check_availability_slot}`}
+              : `${contentForm.check_availability_slot}`}{' '}
           </p>
           <p
             className={`flex items-center justify-center text-center pb-3 text-sm text-primary-500`}
@@ -217,9 +213,11 @@ const ScheduleLessonFormStepOne = (props) => {
             ) : watchDate && watchTime ? (
               `${remainingSlots} ${contentForm.avalaible_slot_label}`
             ) : (
-              `select a ${!watchDate ? 'date' : ''}${!watchDate && !watchTime ? ' & ' : ''}${
-                !watchTime ? 'time' : ''
-              } to get started`
+              `${contentForm?.label_select_date_time?.select_label} ${
+                !watchDate ? `${contentForm?.label_select_date_time?.label_select_date}` : ''
+              }${!watchDate && !watchTime ? ' & ' : ''}${
+                !watchTime ? `${contentForm?.label_select_date_time?.label_select_time}` : ''
+              } ${contentForm?.label_select_date_time?.description_started}`
             )}
           </p>
 

@@ -15,13 +15,13 @@ import WhiteButton from '@/components/button/WhiteButton'
 import Carousel from '@/components/Carousel'
 import ReviewsCarousel from '@/components/ReviewsCarousel'
 import TeachersCarousel from '@/components/TeachersCarousel'
-import Markdown from '@/components/Markdown'
 import VideoButton from '@/components/button/VideoButton'
 import axios from 'axios'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import { url } from '../lib/utils/requests'
+import Markdown from '../components/Markdown'
 
 export default function Home(props) {
   const { content = {}, siteMetadata = {} } = props
@@ -81,17 +81,15 @@ export default function Home(props) {
             </h1>
             <div className="mb-3">
               {content?.featured?.map(({ title = '' }) => (
-                <>
-                  <div
-                    key={title}
-                    className="ml-0 bold flex-row flex items-center text-sm md:text-lg text-gray-600 text-left  mx-auto pb-3"
-                  >
-                    <div className="items-center flex justify-center">
-                      <IoCheckmarkCircleOutline className="mr-3 text-xl" />
-                    </div>
-                    {title}
+                <div
+                  key={title}
+                  className="ml-0 bold flex-row flex items-center text-sm md:text-lg text-gray-600 text-left  mx-auto pb-3"
+                >
+                  <div className="items-center flex justify-center">
+                    <IoCheckmarkCircleOutline className="mr-3 text-xl" />
                   </div>
-                </>
+                  {title}
+                </div>
               ))}
             </div>
 
@@ -129,17 +127,15 @@ export default function Home(props) {
             </h1>
             <div className="mb-3">
               {content?.featured?.map(({ title = '' }) => (
-                <>
-                  <div
-                    key={title}
-                    className="ml-0 bold flex-row flex items-center text-sm md:text-lg text-gray-600 text-left  mx-auto pb-3"
-                  >
-                    <div className="items-center flex justify-center">
-                      <IoCheckmarkCircleOutline className="mr-3 text-xl" />
-                    </div>
-                    {title}
+                <div
+                  key={title}
+                  className="ml-0 bold flex-row flex items-center text-sm md:text-lg text-gray-600 text-left  mx-auto pb-3"
+                >
+                  <div className="items-center flex justify-center">
+                    <IoCheckmarkCircleOutline className="mr-3 text-xl" />
                   </div>
-                </>
+                  {title}
+                </div>
               ))}
             </div>
 
@@ -570,7 +566,7 @@ export default function Home(props) {
             </div>
             <div className="w-full md:w-1/2 pb-32 md:pb-0">
               {content?.faq_content?.map((content, i) => (
-                <>
+                <React.Fragment key={i}>
                   <button
                     key={content.title}
                     className="border-b w-full pb-6 flex justify-between items-center hover:bg-gray-100 cursor-pointer"
@@ -587,9 +583,9 @@ export default function Home(props) {
                     style={{ display: selectedFaq === i ? 'block' : 'none' }}
                     className="px-8 pt-9"
                   >
-                    <p className="text-gray-600 text-left">{content.description}</p>
+                    <Markdown className="text-gray-600 text-left">{content.description}</Markdown>
                   </div>
-                </>
+                </React.Fragment>
               ))}
 
               <button

@@ -10,8 +10,17 @@ import Analytics from '@/components/analytics'
 import Head from 'next/head'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'next-themes'
+import moment from 'moment'
+import 'moment/locale/id'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+  useEffect(() => {
+    moment.locale(router.locale)
+  }, [router.locale])
+
   return (
     <ThemeProvider attribute="class">
       <Head>

@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "schedule_allocations",
   "info": {
-    "name": "Schedule Allocation",
+    "name": "5. Schedule Allocation",
     "description": ""
   },
   "options": {

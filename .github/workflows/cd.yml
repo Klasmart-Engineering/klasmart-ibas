@@ -20,6 +20,7 @@ jobs:
         run: |
           cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
           git fetch
-          git pull feature/github-action
+          git checkout feature/github-action
+          git pull
           git status
           docker-compose -f local.yml up -d --build

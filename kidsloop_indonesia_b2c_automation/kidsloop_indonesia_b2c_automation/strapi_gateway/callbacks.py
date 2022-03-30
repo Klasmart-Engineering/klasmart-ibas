@@ -24,10 +24,15 @@ def switch_strapi_cms_callback(callback_data):
     status = ""
     if callback_data["entry"].get("schedule_status"):
         status = callback_data["entry"]["schedule_status"]["description"]
+    
+    package = {"price": 750_000, "description": "Invoice Demo #123"}
+    if callback_data["entry"].get("package"):
+        package = callback_data["entry"]["package"]
     when = render_date_time(
         callback_data["entry"]["date"], callback_data["entry"]["time"]
     )
-    if model == "schedule" and event == "entry.create":
+
+    if event == "entry.create":
         # send wa
         wa_message = WhatsappMessage()
         body_parameters = wa_message.signup_info_body_parameters(name, when)
@@ -39,7 +44,7 @@ def switch_strapi_cms_callback(callback_data):
         email = Email()
         email.send_email_new_register_to_sales(callback_data)
         print(f"ses send_email_new_register_to_sales sent")
-    elif model == "schedule" and event == "entry.update" and status == "interested":
+    elif event == "entry.update" and status == "interested":
         # check schedule id if invoice already created if not, then create
         schedule_invoice, created = models.ScheduleInvoce.objects.get_or_create(
             schedule_id=schedule_id
@@ -53,16 +58,17 @@ def switch_strapi_cms_callback(callback_data):
         print("create invoice")
         xendit = Xendit()
         payload = xendit.create_invoce_payload(
-            schedule_id, parent_email, name, f"0{phone}"
+            schedule_id, parent_email, name, f"0{phone}", package
         )
         r = xendit.create_invoice(payload)
         response = r.json()
-        print(f"xendit create_invoice status: {r.json()['status']} {r.status_code}")
-        if r.status_code == 201:
-            schedule_invoice.invoice_id = response["id"]
+        print(f"xendit create_invoice status: {r.status_code}")
+        if r.status_code == 200:
+            external_id = payload["external_id"]
+            schedule_invoice.external_id = external_id
             schedule_invoice.save()
 
-    elif model == "schedule" and event == "entry.update" and status == "free_trial":
+    elif event == "entry.update" and status == "free_trial":
         # _, created = models.ScheduleFreeTrial.objects.get_or_create(
         #     schedule_id=schedule_id
         # )
@@ -72,72 +78,20 @@ def switch_strapi_cms_callback(callback_data):
         #     )
         #     return
         # callback strapi create subscription entry
-        import requests
-        from datetime import timedelta
-        from django.conf import settings
-        from django.utils import timezone
+        from kidsloop_indonesia_b2c_automation.strapi_gateway import api_requests
+        is_free_trial = True
+        strapi_subscription = api_requests.StrapiSubscription()
+        payload = strapi_subscription.create_subscription_payload(parent_email, callback_data, is_free_trial)
+        response = strapi_subscription.create_subscription(payload)
+        print(f"call strapi response: {response.json()}")
 
-        package = callback_data["entry"]["package"]
-        url = f"{settings.STRAPI_BASE_URL}/subscriptions"
-        now = timezone.now()
-        now_date = now.date()
-        duration = package["duration_number"]
-        if package["duration_type"] == "months":
-            duration = 30 * package["duration_number"]
-        elif package["duration_type"] == "years":
-            duration = 356 * package["duration_number"]
-
-        end_date = now + timedelta(days=duration)
-        payload = {
-            "customer_email": parent_email,
-            "is_free_trial": True,
-            "paid_price": 0,
-            "subscription_name": package["package_name"],
-            "duration_number": package["duration_number"],
-            "duration_type": package["duration_type"],
-            "start_date": f"{now_date}",
-            "end_date": f"{end_date.date()}",
-        }
-        print(payload)
-        r = requests.post(
-            url,
-            json=payload,
-        )
-        print(f"call strapi response: {r.json()}")
-
-    elif model == "schedule" and event == "entry.update" and status == "paid":
-        import requests
-        from datetime import timedelta
-        from django.conf import settings
-        from django.utils import timezone
-
-        package = callback_data["entry"]["package"]
-        url = f"{settings.STRAPI_BASE_URL}/subscriptions"
-        now = timezone.now()
-        now_date = now.date()
-        duration = package["duration_number"]
-        if package["duration_type"] == "months":
-            duration = 30 * package["duration_number"]
-        elif package["duration_type"] == "years":
-            duration = 356 * package["duration_number"]
-
-        end_date = now + timedelta(days=duration)
-        payload = {
-            "customer_email": parent_email,
-            "is_free_trial": False,
-            "paid_price": package["price"],
-            "subscription_name": package["package_name"],
-            "duration_number": package["duration_number"],
-            "duration_type": package["duration_type"],
-            "start_date": f"{now_date}",
-            "end_date": f"{end_date.date()}",
-        }
-        print(payload)
-        r = requests.post(
-            url,
-            json=payload,
-        )
-        print(f"call strapi subscription response: {r.json()}")
+    elif event == "entry.update" and status == "paid":
+        from kidsloop_indonesia_b2c_automation.strapi_gateway import api_requests
+        is_free_trial = False
+        strapi_subscription = api_requests.StrapiSubscription()
+        payload = strapi_subscription.create_subscription_payload(parent_email, callback_data, is_free_trial)
+        response = strapi_subscription.create_subscription(payload)
+        print(f"call strapi response: {response.json()}")
 
 # callback_data = {
 #     "event": "entry.create",

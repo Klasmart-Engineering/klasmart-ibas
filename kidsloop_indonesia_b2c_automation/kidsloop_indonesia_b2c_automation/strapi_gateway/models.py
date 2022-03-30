@@ -6,6 +6,10 @@ class ScheduleInvoce(models.Model):
     schedule_id = models.BigIntegerField()
     invoice_id = models.CharField(
         max_length=255, 
-        default=f"{uuid4()}", 
-        unique=True
+        default="",
+    )
+    external_id = models.CharField(
+        max_length=255, 
+        default=f"{uuid4()}",
+        db_index=True
     )

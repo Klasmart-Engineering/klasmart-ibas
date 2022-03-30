@@ -4,6 +4,7 @@ from rest_framework.decorators import (
     permission_classes,
 )
 from rest_framework.response import Response
+from . import tasks as xendit_tasks
 
 
 @api_view(
@@ -17,6 +18,5 @@ from rest_framework.response import Response
 @permission_classes([])
 def xendit_invoice_callback(request):
     callback_data = request.data
-    # process xendit callback async
-    
+    xendit_tasks.invoice_callback_task(callback_data=callback_data)
     return Response()

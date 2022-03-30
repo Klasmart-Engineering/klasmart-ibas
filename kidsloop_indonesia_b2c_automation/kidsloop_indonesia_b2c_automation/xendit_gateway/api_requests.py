@@ -21,12 +21,13 @@ class Xendit:
         return f"I{now_month_year}{invoice_queue_id.rjust(4, '0')}"
 
     def create_invoce_payload(
-        self, schedule_id, parent_email, parent_name, parent_phone
+        self, schedule_id, parent_email, parent_name, parent_phone, package
     ):
-        amount = 750_000
+        amount = package["price"]
+        description = package["description"]
 
         external_id = self.create_invoice_id(schedule_id)
-        description = "Invoice Demo #123"  # TODO: dynamic desc for next sprint
+        
         return {
             "external_id": external_id,
             "amount": amount,

@@ -4,8 +4,7 @@ from rest_framework.decorators import (
     permission_classes,
 )
 from rest_framework.response import Response
-
-from . import tasks as strapi_tasks
+from . import tasks as xendit_tasks
 
 
 @api_view(
@@ -14,10 +13,10 @@ from . import tasks as strapi_tasks
     ]
 )
 # custom auth class for checking headers
+# @permission_classes([XenditCallbackHeaderToken])
 @authentication_classes([])
 @permission_classes([])
-def strapi_cms_callback(request):
+def xendit_invoice_callback(request):
     callback_data = request.data
-    # process callback async
-    strapi_tasks.switch_strapi_cms_callback_task.delay(callback_data)
+    xendit_tasks.invoice_callback_task(callback_data=callback_data)
     return Response()

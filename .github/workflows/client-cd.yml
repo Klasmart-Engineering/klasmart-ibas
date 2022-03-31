@@ -6,11 +6,6 @@ on:
       - feature/github-action
     paths:
       - 'client/**'
-  pull_request:
-    branches:
-      - feature/github-action
-    paths:
-      - 'client/**'
   workflow_dispatch:
 
 jobs:
@@ -24,8 +19,10 @@ jobs:
         run: |
           cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
           git fetch
+          git stash
           git pull origin feature/github-action
           git status
+          git log --oneline -n 5
 
       - name: Run Docker Compose
         run: docker-compose -f /home/evik.santika/kidsloop-ibas/client/docker-compose-dev.yml up -d --build

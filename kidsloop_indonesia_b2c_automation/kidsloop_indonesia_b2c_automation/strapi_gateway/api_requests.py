@@ -27,11 +27,7 @@ class Strapi:
 
 
 class StrapiSubscription(Strapi):
-    
-
-    def create_subscription_payload(
-        self, parent_email, callback_data, is_free_trial
-    ):
+    def create_subscription_payload(self, parent_email, callback_data, is_free_trial):
         package = callback_data["entry"]["package"]
 
         # TODO: refactor as generate subs duration function
@@ -68,9 +64,7 @@ class UpdateStrapiSchedule(Strapi):
         super().__init__()
         self.schedule_id = schedule_id
 
-    def update_schedule_status_payload(
-        self, status: int
-    ):
+    def update_schedule_status_payload(self, status: int):
         return {"schedule_status": status}
 
     def update_schedule(self, create_subscription_payload):

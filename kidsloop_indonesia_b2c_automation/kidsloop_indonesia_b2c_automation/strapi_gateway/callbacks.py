@@ -24,7 +24,7 @@ def switch_strapi_cms_callback(callback_data):
     status = ""
     if callback_data["entry"].get("schedule_status"):
         status = callback_data["entry"]["schedule_status"]["description"]
-    
+
     package = {"price": 750_000, "description": "Invoice Demo #123"}
     if callback_data["entry"].get("package"):
         package = callback_data["entry"]["package"]
@@ -79,19 +79,26 @@ def switch_strapi_cms_callback(callback_data):
         #     return
         # callback strapi create subscription entry
         from kidsloop_indonesia_b2c_automation.strapi_gateway import api_requests
+
         is_free_trial = True
         strapi_subscription = api_requests.StrapiSubscription()
-        payload = strapi_subscription.create_subscription_payload(parent_email, callback_data, is_free_trial)
+        payload = strapi_subscription.create_subscription_payload(
+            parent_email, callback_data, is_free_trial
+        )
         response = strapi_subscription.create_subscription(payload)
         print(f"call strapi response: {response.json()}")
 
     elif event == "entry.update" and status == "paid":
         from kidsloop_indonesia_b2c_automation.strapi_gateway import api_requests
+
         is_free_trial = False
         strapi_subscription = api_requests.StrapiSubscription()
-        payload = strapi_subscription.create_subscription_payload(parent_email, callback_data, is_free_trial)
+        payload = strapi_subscription.create_subscription_payload(
+            parent_email, callback_data, is_free_trial
+        )
         response = strapi_subscription.create_subscription(payload)
         print(f"call strapi response: {response.json()}")
+
 
 # callback_data = {
 #     "event": "entry.create",

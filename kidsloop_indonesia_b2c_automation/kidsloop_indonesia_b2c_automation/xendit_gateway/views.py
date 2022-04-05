@@ -18,5 +18,5 @@ from . import tasks as xendit_tasks
 @permission_classes([])
 def xendit_invoice_callback(request):
     callback_data = request.data
-    xendit_tasks.invoice_callback_task(callback_data=callback_data)
+    xendit_tasks.invoice_callback_task.delay(callback_data=callback_data)
     return Response()

@@ -1,0 +1,31 @@
+name: Bancend CD
+
+on:
+  push:
+    branches:
+      - feature/github-action
+    paths:
+      - 'backend/**'
+  workflow_dispatch:
+
+jobs:
+  cd:
+    runs-on: landing-page-dev
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update Code
+        run: |
+          cd /home/evik.santika/kidsloop-ibas/backend
+          git fetch
+          git stash
+          git pull origin feature/github-action
+          git status
+          git log --oneline -n 5
+
+      - name: Run Docker Compose
+        run: docker-compose -f /home/evik.santika/kidsloop-ibas/backend/docker-compose-dev.yml up -d --build
+      
+      - name: Clean up
+        run: docker system prune --force

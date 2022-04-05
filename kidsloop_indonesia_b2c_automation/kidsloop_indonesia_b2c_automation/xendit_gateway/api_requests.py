@@ -27,7 +27,7 @@ class Xendit:
         description = package["description"]
 
         external_id = self.create_invoice_id(schedule_id)
-        
+
         return {
             "external_id": external_id,
             "amount": amount,

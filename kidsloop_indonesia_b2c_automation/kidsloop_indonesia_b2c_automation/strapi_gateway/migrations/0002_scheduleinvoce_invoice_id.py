@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('strapi_gateway', '0001_initial'),
+        ("strapi_gateway", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='scheduleinvoce',
-            name='invoice_id',
-            field=models.CharField(db_index=True, default='f9354942-d152-46f5-aa68-74320e054b42', max_length=255),
+            model_name="scheduleinvoce",
+            name="invoice_id",
+            field=models.CharField(
+                db_index=True,
+                default="f9354942-d152-46f5-aa68-74320e054b42",
+                max_length=255,
+            ),
         ),
     ]

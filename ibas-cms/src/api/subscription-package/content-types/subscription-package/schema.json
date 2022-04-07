@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscription_packages",
+  "info": {
+    "singularName": "subscription-package",
+    "pluralName": "subscription-packages",
+    "displayName": "1. Subscription Package",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "package_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "duration_type": {
+      "type": "enumeration",
+      "enum": [
+        "days",
+        "months",
+        "years"
+      ],
+      "required": true
+    },
+    "duration_number": {
+      "type": "integer",
+      "required": true
+    },
+    "price": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

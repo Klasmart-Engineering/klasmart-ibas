@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedules",
+  "info": {
+    "singularName": "schedule",
+    "pluralName": "schedules",
+    "displayName": "2. Schedule",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "time": {
+      "type": "time"
+    },
+    "parent_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "children": {
+      "type": "json"
+    },
+    "schedule_status": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::schedule-status.schedule-status"
+    },
+    "subscription_package": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subscription-package.subscription-package"
+    }
+  }
+}

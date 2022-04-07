@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscriptions",
+  "info": {
+    "singularName": "subscription",
+    "pluralName": "subscriptions",
+    "displayName": "3. Subscription",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer_email": {
+      "type": "email",
+      "required": true
+    },
+    "paid_price": {
+      "type": "biginteger"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "subscription_name": {
+      "type": "string"
+    },
+    "duration_number": {
+      "type": "integer"
+    },
+    "duration_type": {
+      "type": "enumeration",
+      "enum": [
+        "days",
+        "months",
+        "years"
+      ]
+    },
+    "is_free_trial": {
+      "type": "boolean"
+    }
+  }
+}

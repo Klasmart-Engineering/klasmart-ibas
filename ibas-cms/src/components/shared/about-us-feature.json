@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_about_us_features",
+  "info": {
+    "displayName": "About_us_feature",
+    "icon": "font"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

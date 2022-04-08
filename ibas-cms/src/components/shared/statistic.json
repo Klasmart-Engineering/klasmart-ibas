@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_statistics",
+  "info": {
+    "displayName": "statistic",
+    "icon": "american-sign-language-interpreting"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

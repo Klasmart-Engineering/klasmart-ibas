@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_user_reviews",
+  "info": {
+    "displayName": "User_review",
+    "icon": "comment-alt"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "job": {
+      "type": "string"
+    },
+    "review": {
+      "type": "text"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

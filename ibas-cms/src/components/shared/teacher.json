@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_teachers",
+  "info": {
+    "displayName": "Teacher",
+    "icon": "chalkboard-teacher"
+  },
+  "options": {},
+  "attributes": {
+    "video_url": {
+      "type": "text"
+    },
+    "teacher_name": {
+      "type": "text"
+    },
+    "teacher_experience": {
+      "type": "text"
+    },
+    "video_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

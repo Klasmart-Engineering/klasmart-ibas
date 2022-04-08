@@ -1,0 +1,156 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_title": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.items"
+    },
+    "hero_primary_btn": {
+      "type": "text"
+    },
+    "hero_secondary_btn": {
+      "type": "string"
+    },
+    "hero_statistic": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.statistic"
+    },
+    "about_us_title": {
+      "type": "text"
+    },
+    "about_us_pils": {
+      "type": "string"
+    },
+    "about_us_features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.about-us-feature"
+    },
+    "program_title": {
+      "type": "string"
+    },
+    "program_description": {
+      "type": "string"
+    },
+    "programs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.programs"
+    },
+    "hero_video_url": {
+      "type": "text"
+    },
+    "curiculum_title": {
+      "type": "text"
+    },
+    "curiculum_action_btn": {
+      "type": "text"
+    },
+    "our_teacher_title": {
+      "type": "text"
+    },
+    "our_teacher_pils": {
+      "type": "string"
+    },
+    "teachers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.teacher"
+    },
+    "faq_title": {
+      "type": "text"
+    },
+    "faq_pils": {
+      "type": "string"
+    },
+    "faq_content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-content"
+    },
+    "hero_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "footer_pils": {
+      "type": "string"
+    },
+    "footer_title": {
+      "type": "string"
+    },
+    "footer_action_btn": {
+      "type": "text"
+    },
+    "footer_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "user_review": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.user-review"
+    },
+    "user_review_title": {
+      "type": "text"
+    },
+    "user_review_pils": {
+      "type": "string"
+    },
+    "hero_subtitle": {
+      "type": "string"
+    },
+    "about": {
+      "type": "string"
+    },
+    "program": {
+      "type": "string"
+    },
+    "success_story": {
+      "type": "string"
+    },
+    "community": {
+      "type": "string"
+    },
+    "faq": {
+      "type": "string"
+    },
+    "badanamu_logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

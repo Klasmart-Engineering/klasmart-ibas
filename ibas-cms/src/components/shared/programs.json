@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_shared_programs",
+  "info": {
+    "displayName": "Programs",
+    "icon": "brain"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "age_label": {
+      "type": "string"
+    },
+    "grade_label": {
+      "type": "string"
+    },
+    "duration_label": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "age": {
+      "type": "richtext"
+    },
+    "grade": {
+      "type": "richtext"
+    },
+    "thumbnail_avatar": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

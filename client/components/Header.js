@@ -9,6 +9,7 @@ import axios from 'axios'
 import { Fragment, useState, useEffect, useMemo } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { url } from '../lib/utils/requests'
+import { normalize } from '../lib/utils/transformers'
 
 const Header = () => {
   const [contentNavbar, setContentNavbar] = useState([])
@@ -19,7 +20,7 @@ const Header = () => {
   }, [router?.locale])
 
   const loadContentNavbar = () => {
-    axios.get(url(`homepage?_locale=${locale}`)).then((res) => setContentNavbar(res.data))
+    axios.get(url(`homepage?_locale=${locale}`)).then((res) => setContentNavbar(normalize(res.data)))
   }
 
   const handleChangeLocale = (locale = 'en') => {

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_body_content_forms",
+  "info": {
+    "displayName": "Body_content_form",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "finish_label": {
+      "type": "string"
+    }
+  }
+}

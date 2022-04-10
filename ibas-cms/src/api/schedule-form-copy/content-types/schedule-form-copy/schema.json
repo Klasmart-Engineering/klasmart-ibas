@@ -1,0 +1,94 @@
+{
+  "kind": "singleType",
+  "collectionName": "schedule_form_copies",
+  "info": {
+    "singularName": "schedule-form-copy",
+    "pluralName": "schedule-form-copies",
+    "displayName": "Schedule Form Copy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date_time_title": {
+      "type": "string"
+    },
+    "select_time_label": {
+      "type": "string"
+    },
+    "avalaible_slot_label": {
+      "type": "string"
+    },
+    "form_primary_btn": {
+      "type": "string"
+    },
+    "form_secondary_btn": {
+      "type": "string"
+    },
+    "form_parent_title": {
+      "type": "string"
+    },
+    "parent_name_field": {
+      "type": "string"
+    },
+    "email_field": {
+      "type": "string"
+    },
+    "phone_number_field": {
+      "type": "string"
+    },
+    "form_child_title": {
+      "type": "string"
+    },
+    "child_name_field": {
+      "type": "string"
+    },
+    "age_field": {
+      "type": "string"
+    },
+    "grade_field": {
+      "type": "string"
+    },
+    "school_name_field": {
+      "type": "string"
+    },
+    "form_third_btn": {
+      "type": "string"
+    },
+    "body_content_form": {
+      "displayName": "Body_content_form",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.body-content-form"
+    },
+    "form_third_url": {
+      "type": "string"
+    },
+    "check_availability_slot": {
+      "type": "string"
+    },
+    "add_more_child_btn": {
+      "type": "string"
+    },
+    "schedule_lesson_btn": {
+      "type": "string"
+    },
+    "child_title": {
+      "type": "string"
+    },
+    "finish_btn": {
+      "type": "string"
+    },
+    "label_select_date_time": {
+      "displayName": "Label_select_date_time",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.label-select-date-time"
+    },
+    "button_remove_field_child": {
+      "type": "string"
+    }
+  }
+}

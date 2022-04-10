@@ -12,6 +12,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useSchedules } from '../../../lib/hooks/useSchedules'
 import calendarIdLocale from '../../../lib/utils/calendarIdLocale'
+import { normalize } from '../../../lib/utils/transformers'
 
 const NextArrow = (props) => {
   const { onClick } = props
@@ -48,7 +49,7 @@ const ScheduleLessonFormStepOne = (props) => {
   }, [router?.locale])
 
   const loadContentForm = () => {
-    axios.get(url(`schedule-form-copy?_locale=${locale}`)).then((res) => setContentForm(res.data))
+    axios.get(url(`schedule-form-copy?_locale=${locale}`)).then((res) => setContentForm(normalize(res.data)))
   }
 
   useEffect(() => {

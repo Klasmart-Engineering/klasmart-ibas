@@ -9,6 +9,7 @@ import { Link as ScrollLink } from 'react-scroll'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { url } from '../lib/utils/requests'
+import { normalize } from '../lib/utils/transformers'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -20,7 +21,7 @@ const MobileNav = () => {
   }, [router?.locale])
 
   const loadContentNavbar = () => {
-    axios.get(url(`homepage?_locale=${locale}`)).then((res) => setContentNavbar(res.data))
+    axios.get(url(`homepage?_locale=${locale}`)).then((res) => setContentNavbar(normalize(res.data)))
   }
 
   const onToggleNav = () => {

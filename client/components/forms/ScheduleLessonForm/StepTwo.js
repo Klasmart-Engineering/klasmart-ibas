@@ -10,6 +10,7 @@ import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { url } from '../../../lib/utils/requests'
+import { normalize } from '../../../lib/utils/transformers'
 
 const validationSchema = yup.object({
   parent_name: yup.string().required('Required'),
@@ -30,7 +31,7 @@ const ScheduleLessonFormStepTwo = (props) => {
   }, [router?.locale])
 
   const loadContentForm = () => {
-    axios.get(url(`schedule-form-copy?_locale=${locale}`)).then((res) => setContentForm(res.data))
+    axios.get(url(`schedule-form-copy?_locale=${locale}`)).then((res) => setContentForm(normalize(res.data)))
   }
 
   useEffect(() => {

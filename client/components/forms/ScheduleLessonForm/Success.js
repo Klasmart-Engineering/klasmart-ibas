@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Markdown from '../../Markdown'
 import { url } from '../../../lib/utils/requests'
+import { normalize } from '../../../lib/utils/transformers'
 
 const ScheduleLessonFormSuccess = ({ className, style, setShowEmail }) => {
   const [contentSuccess, setContentSuccess] = useState([])
@@ -18,7 +19,7 @@ const ScheduleLessonFormSuccess = ({ className, style, setShowEmail }) => {
   const loadContentSuccess = () => {
     api()
       .get(url(`schedule-form-copy?_locale=${locale}`))
-      .then((res) => setContentSuccess(res.data))
+      .then((res) => setContentSuccess(normalize(res.data)))
   }
 
   useEffect(() => {

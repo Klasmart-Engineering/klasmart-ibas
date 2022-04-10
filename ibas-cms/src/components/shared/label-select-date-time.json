@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_label_select_date_times",
+  "info": {
+    "displayName": "Label_select_date_time",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "select_label": {
+      "type": "string"
+    },
+    "label_select_date": {
+      "type": "string"
+    },
+    "label_select_time": {
+      "type": "string"
+    },
+    "description_started": {
+      "type": "string"
+    }
+  }
+}

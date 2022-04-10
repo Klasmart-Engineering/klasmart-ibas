@@ -5,6 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import axios from 'axios'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import { api, url } from '../lib/utils/requests'
+import { normalize } from '../lib/utils/transformers'
 import Markdown from '../components/Markdown'
 import { useRouter } from 'next/router'
 
@@ -21,7 +22,7 @@ export default function Faq(props) {
   const loadContentFaq = () => {
     api()
       .get(`faq-contents?_locale=${locale}`)
-      .then((res) => setContentFaq(res.data))
+      .then((res) => setContentFaq(normalize(res.data)))
   }
 
   const toogleAccordion = (i) => {
@@ -104,12 +105,12 @@ export default function Faq(props) {
 
 export async function getServerSideProps({ locale }) {
   const cmsUrl = url(`homepage?_locale=${locale}`)
-  const content = await axios.get(cmsUrl).then((res) => res.data)
+  const content = await axios.get(cmsUrl).then((res) => normalize(res.data))
 
   const metaUrl = url(`seos`)
   const siteMetadata = await axios
     .get(metaUrl, { params: { path: '/faqs' } })
-    .then((res) => res.data)
+    .then((res) => normalize(res.data))
 
   return { props: { locale, content, siteMetadata: siteMetadata[0] } }
 }

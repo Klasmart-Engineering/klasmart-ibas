@@ -4,10 +4,11 @@
   "info": {
     "singularName": "schedule-allocation",
     "pluralName": "schedule-allocations",
-    "displayName": "5. Schedule Allocation"
+    "displayName": "5. Schedule Allocation",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

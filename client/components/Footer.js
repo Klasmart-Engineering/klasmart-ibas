@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { api } from 'lib/utils/requests'
 import { Menu, Transition } from '@headlessui/react'
 import { url } from '../lib/utils/requests'
+import { normalize } from '../lib/utils/transformers'
 
 export default function Footer() {
   const [contentFooter, setContentFooter] = useState([])
@@ -21,7 +22,7 @@ export default function Footer() {
   const loadContentFooter = () => {
     api()
       .get(url(`homepage?_locale=${locale}`))
-      .then((res) => setContentFooter(res.data))
+      .then((res) => setContentFooter(normalize(res.data)))
   }
 
   useEffect(() => {

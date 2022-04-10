@@ -4,27 +4,6 @@
  *  homepage controller
  */
 
-const { createCoreController } = require('@strapi/strapi').factories;
-
-module.exports = createCoreController('api::homepage.homepage');
-
-// const { createCoreController } = require('@strapi/strapi').factories;
-
-// module.exports = createCoreController('api::homepage.homepage', ({ strapi }) => ({
-//   // wrap a core action, leaving core logic in place
-//   async find(ctx) {
-//     // some custom logic here
-//     const populateList = [
-//         'About_us_feature',
-//         'Header.buttons',
-//         'Clients.clients'
-//     ]
-//     // Push any additional query params to the array
-//     populateList.push(ctx.query.populate)
-//     ctx.query.populate = populateList.join(',')
-
-//     const content = await super.find(ctx)
-//     return content
-//   },
-// }));
-
+const schema = require("../content-types/homepage/schema.json");
+const createPopulatedController = require("../../../helpers/populate");
+module.exports = createPopulatedController("api::homepage.homepage", schema);

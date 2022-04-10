@@ -21,6 +21,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import { url } from '../lib/utils/requests'
+import { normalize } from '../lib/utils/transformers'
 import Markdown from '../components/Markdown'
 
 export default function Home(props) {
@@ -676,11 +677,11 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps({ locale }) {
-  const cmsUrl = url(`homepage?_locale=${locale}`)
-  const content = await axios.get(cmsUrl).then((res) => res.data)
+  const cmsUrl = url(`homepage?_locale=${locale}&populate=*`)
+  const content = await axios.get(cmsUrl).then((res) => normalize(res.data))
 
   const metaUrl = url(`seos`)
-  const siteMetadata = await axios.get(metaUrl, { params: { path: '/' } }).then((res) => res.data)
+  const siteMetadata = await axios.get(metaUrl, { params: { path: '/', populate:'image' } }).then((res) => normalize(res.data))
 
   return { props: { locale, content, siteMetadata: siteMetadata[0] } }
 }

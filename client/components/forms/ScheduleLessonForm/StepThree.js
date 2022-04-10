@@ -12,6 +12,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import { url } from '../../../lib/utils/requests'
 import { schedulesQuery } from '../../../lib/queries/schedule.queries'
+import { normalize } from '../../../lib/utils/transformers'
 
 const validationSchema = yup.object().shape({
   children: yup.array().of(
@@ -46,7 +47,7 @@ const ScheduleLessonFormStepThree = (props) => {
   }, [router?.locale])
 
   const loadContentForm = () => {
-    axios.get(url(`schedule-form-copy?_locale=${locale}`)).then((res) => setContentForm(res.data))
+    axios.get(url(`schedule-form-copy?_locale=${locale}`)).then((res) => setContentForm(normalize(res.data)))
   }
 
   useEffect(() => {

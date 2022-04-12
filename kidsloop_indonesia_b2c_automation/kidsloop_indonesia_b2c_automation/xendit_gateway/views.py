@@ -5,6 +5,7 @@ from rest_framework.decorators import (
 )
 from rest_framework.response import Response
 from . import tasks as xendit_tasks
+from .permissions import XenditCallbackHeaderTokenPermission
 
 
 @api_view(
@@ -13,7 +14,7 @@ from . import tasks as xendit_tasks
     ]
 )
 # custom auth class for checking headers
-# @permission_classes([XenditCallbackHeaderToken])
+@permission_classes([XenditCallbackHeaderTokenPermission])
 @authentication_classes([])
 @permission_classes([])
 def xendit_invoice_callback(request):

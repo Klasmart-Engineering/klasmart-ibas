@@ -110,6 +110,23 @@ def test_invoice_callback_view(*args):
     callback_data = {"external_id": "external_id_2", "status": "PAID"}
     client = RequestsClient()
     response = client.post(
-        "http://testserver/xendit_invoice_callback/", json=callback_data
+        "http://testserver/xendit_invoice_callback/", 
+        json=callback_data,
+        headers={"x-callback-token": "defg"}
     )
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_invoice_callback_view_invalid_header(*args):
+    strapi_gateway_models.ScheduleInvoce.objects.create(
+        external_id="external_id_2", invoice_id="invoice_id_2", schedule_id=2
+    )
+    callback_data = {"external_id": "external_id_2", "status": "PAID"}
+    client = RequestsClient()
+    response = client.post(
+        "http://testserver/xendit_invoice_callback/", 
+        json=callback_data,
+        headers={"x-callback-token": "dasdaj"}
+    )
+    assert response.status_code == 403

@@ -1,3 +1,4 @@
+import imp
 from rest_framework.decorators import (
     api_view,
     authentication_classes,
@@ -6,6 +7,7 @@ from rest_framework.decorators import (
 from rest_framework.response import Response
 
 from . import tasks as strapi_tasks
+from .permissions import StrapiCallbackHeaderTokenPermission
 
 
 @api_view(
@@ -15,7 +17,7 @@ from . import tasks as strapi_tasks
 )
 # custom auth class for checking headers
 @authentication_classes([])
-@permission_classes([])
+@permission_classes([StrapiCallbackHeaderTokenPermission])
 def strapi_cms_callback(request):
     callback_data = request.data
     # process callback async

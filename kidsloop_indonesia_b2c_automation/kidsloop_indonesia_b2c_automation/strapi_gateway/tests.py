@@ -38,8 +38,23 @@ callback_data = {
 @pytest.mark.django_db
 def test_strapi_cms_callback_success(*args):
     client = RequestsClient()
-    response = client.post("http://testserver/strapi_cms_callback/", json=callback_data)
+    response = client.post(
+        "http://testserver/strapi_cms_callback/", 
+        json=callback_data,
+        headers={"x-callback-token": "abcd"}
+    )
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_strapi_cms_callback_invalid_header(*args):
+    client = RequestsClient()
+    response = client.post(
+        "http://testserver/strapi_cms_callback/", 
+        json=callback_data,
+        headers={"x-callback-token": "gmtgt"}
+    )
+    assert response.status_code == 403
 
 
 @patch.object(

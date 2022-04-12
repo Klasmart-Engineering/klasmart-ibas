@@ -6,6 +6,7 @@ import { privateApi, url } from '../../lib/utils/requests'
 import { IoDownloadOutline } from 'react-icons/io5'
 import DataList from '../../components/DataList'
 import moment from 'moment'
+import { normalize } from '../../lib/utils/transformers'
 
 const defaultFilter = {
   _q: '',
@@ -48,7 +49,7 @@ const HomePage = () => {
         params: { ...formatedParams, _sort: 'date:ASC', _limit: -1 },
       })
       .then((res) => {
-        setSchedules(res.data)
+        setSchedules(normalize(res.data))
       })
   }
 

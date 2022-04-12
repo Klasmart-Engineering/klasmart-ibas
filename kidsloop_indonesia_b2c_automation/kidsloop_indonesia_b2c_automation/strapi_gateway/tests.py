@@ -29,8 +29,8 @@ callback_data = {
             "duration_number": 1,
             "duration_type": "months",
             "package_name": "test",
-            "price": 100
-        }
+            "price": 100,
+        },
     },
 }
 
@@ -59,9 +59,12 @@ def test_switch_strapi_cms_callback_task(*args):
     switch_strapi_cms_callback_task(callback_data)
 
 
-from kidsloop_indonesia_b2c_automation.strapi_gateway.api_requests import StrapiSubscription
+from kidsloop_indonesia_b2c_automation.strapi_gateway.api_requests import (
+    StrapiSubscription,
+)
 
 strapi_subscription = StrapiSubscription()
+
 
 @patch.object(
     StrapiSubscription,

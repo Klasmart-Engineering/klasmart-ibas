@@ -4,10 +4,11 @@
   "info": {
     "singularName": "faq-content",
     "pluralName": "faq-contents",
-    "displayName": "Faq Content"
+    "displayName": "Faq Content",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

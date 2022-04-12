@@ -79,14 +79,9 @@ def test_get_access_token():
 )
 def test_invoice_callback(*args):
     strapi_gateway_models.ScheduleInvoce.objects.create(
-        external_id="external_id",
-        invoice_id="invoice_id",
-        schedule_id=1
+        external_id="external_id", invoice_id="invoice_id", schedule_id=1
     )
-    callback_data = {
-        "external_id": "external_id",
-        "status": "PAID"
-    }
+    callback_data = {"external_id": "external_id", "status": "PAID"}
     invoice_callback(callback_data)
 
 
@@ -97,14 +92,9 @@ def test_invoice_callback(*args):
 )
 def test_invoice_callback_task(*args):
     strapi_gateway_models.ScheduleInvoce.objects.create(
-        external_id="external_id",
-        invoice_id="invoice_id",
-        schedule_id=1
+        external_id="external_id", invoice_id="invoice_id", schedule_id=1
     )
-    callback_data = {
-        "external_id": "external_id",
-        "status": "PAID"
-    }
+    callback_data = {"external_id": "external_id", "status": "PAID"}
     invoice_callback_task(callback_data)
 
 
@@ -115,14 +105,11 @@ def test_invoice_callback_task(*args):
 @pytest.mark.django_db
 def test_invoice_callback_view(*args):
     strapi_gateway_models.ScheduleInvoce.objects.create(
-        external_id="external_id_2",
-        invoice_id="invoice_id_2",
-        schedule_id=2
+        external_id="external_id_2", invoice_id="invoice_id_2", schedule_id=2
     )
-    callback_data = {
-        "external_id": "external_id_2",
-        "status": "PAID"
-    }
+    callback_data = {"external_id": "external_id_2", "status": "PAID"}
     client = RequestsClient()
-    response = client.post("http://testserver/xendit_invoice_callback/", json=callback_data)
+    response = client.post(
+        "http://testserver/xendit_invoice_callback/", json=callback_data
+    )
     assert response.status_code == 200

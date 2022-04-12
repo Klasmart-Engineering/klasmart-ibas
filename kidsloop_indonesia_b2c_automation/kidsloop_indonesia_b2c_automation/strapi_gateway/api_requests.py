@@ -51,7 +51,7 @@ class StrapiSubscription(Strapi):
             "start_date": f"{now_date}",
             "end_date": f"{end_date.date()}",
         }
-        return payload
+        return {"data": payload}
 
     def create_subscription(self, create_subscription_payload):
         url = self.CREATE_SUBSCRIPTION_URL
@@ -65,7 +65,7 @@ class UpdateStrapiSchedule(Strapi):
         self.schedule_id = schedule_id
 
     def update_schedule_status_payload(self, status: int):
-        return {"schedule_status": status}
+        return {"data": {"schedule_status": status}}
 
     def update_schedule(self, create_subscription_payload):
         url = f"{self.STRAPI_BASE_URL}/schedules/{self.schedule_id}"

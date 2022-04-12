@@ -14,7 +14,7 @@ import { normalize } from '../../../lib/utils/transformers'
 
 const validationSchema = yup.object({
   parent_name: yup.string().required('Required'),
-  email: yup.string().email('Format not correct').required('Required'),
+  email: yup.string().email('Format not correct').required('Email required'),
   phone: yup.string().required('Required').min(9, 'Minimum 9 digit'),
 })
 

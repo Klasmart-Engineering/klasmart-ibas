@@ -1,8 +1,6 @@
 from django.conf import settings
 
 
-
-
 def invoice_callback(callback_data):
     invoice_status = callback_data["status"]
     if invoice_status == "PAID":

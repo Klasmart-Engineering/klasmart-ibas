@@ -58,8 +58,9 @@ export const useSchedules = () => {
 
   const createSchedule = async (values) => {
     setisLoading(true)
+    const requestBody = {data: values}
 
-    const { error, data } = await createScheduleQuery(values)
+    const { error, data } = await createScheduleQuery(requestBody)
     if (error) {
       seterrorMessage(error)
     } else {

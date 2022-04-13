@@ -20,7 +20,7 @@ jobs:
           cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
           git fetch
           git stash
-          git pull develop
+          git pull origin develop
           git status
           git log --oneline -n 5
 

@@ -3,7 +3,7 @@ name: IBAS CD
 on:
   push:
     branches:
-      - feature/github-action
+      - develop
     paths:
       - 'kidsloop_indonesia_b2c_automation/**'
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
           cd /home/evik.santika/kidsloop-ibas/kidsloop_indonesia_b2c_automation
           git fetch
           git stash
-          git pull origin feature/github-action
+          git pull 
           git status
           git log --oneline -n 5
 

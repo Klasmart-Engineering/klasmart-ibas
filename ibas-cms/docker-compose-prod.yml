@@ -2,7 +2,7 @@ version: '3'
 
 services:
   strapi:
-    container_name: ibas-cms-dev
+    container_name: ibas-cms-prod
     build:
       context: .
       dockerfile: prod.Dockerfile

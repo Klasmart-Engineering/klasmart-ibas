@@ -1,0 +1,23 @@
+name: Push to GCR GitHub Action
+on: [push]
+jobs:
+  build-and-push-to-gcr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: google-github-actions/setup-gcloud@v0.6.0
+      - uses: RafikFarhad/push-to-gcr-github-action@v4
+        with:
+          gcloud_service_key: ${{ secrets.GCP_CREDENTIALS }}
+          registry: asia.gcr.io
+          project_id: ${{ secrets.GKE_PROJECT }}
+          image_name: kidsloop-ibas-cms
+          dockerfile: ./ibas-cms/dev.Dockerfile
+
+
+  deploy:
+    runs-on: landing-page-dev
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Docker Compose
+        run: docker-compose -f /home/evik.santika/kidsloop-ibas/ibas-cms/docker-compose-dev.yml up -d --build

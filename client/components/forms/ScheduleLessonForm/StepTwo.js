@@ -13,9 +13,9 @@ import { url } from '../../../lib/utils/requests'
 import { normalize } from '../../../lib/utils/transformers'
 
 const validationSchema = yup.object({
-  parent_name: yup.string().required('Required'),
-  email: yup.string().email('Format not correct').required('Email required'),
-  phone: yup.string().required('Required').min(9, 'Minimum 9 digit'),
+  parent_name: yup.string().required('Parent Name is required'),
+  email: yup.string().email('Format not correct').required('Email is required'),
+  phone: yup.string().required('Phone Number is required').min(9, 'Minimum 10 digit'),
 })
 
 const ScheduleLessonFormStepTwo = (props) => {
@@ -98,7 +98,7 @@ const ScheduleLessonFormStepTwo = (props) => {
                       label={contentForm.parent_name_field}
                       type="text"
                       value={field.value}
-                      placeholder="Komang Wisnu..."
+                      placeholder="Parent Name"
                       onChange={(v) => {
                         field.onChange(v.currentTarget.value)
                       }}
@@ -116,7 +116,7 @@ const ScheduleLessonFormStepTwo = (props) => {
                         label={contentForm.email_field}
                         type="email"
                         value={field.value}
-                        placeholder="myemail@gmail.com..."
+                        placeholder="example@email.com"
                         onChange={(v) => {
                           field.onChange(v.currentTarget.value)
                         }}
@@ -135,7 +135,7 @@ const ScheduleLessonFormStepTwo = (props) => {
                       <LabeledPhoneInput
                         label={contentForm.phone_number_field}
                         value={field.value}
-                        placeholder="+6281 543 3453.."
+                        placeholder="+62 841 9999 999"
                         onChange={({ value }) => {
                           field.onChange(value)
                         }}

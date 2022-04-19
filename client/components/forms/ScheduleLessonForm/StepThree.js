@@ -17,10 +17,10 @@ import { normalize } from '../../../lib/utils/transformers'
 const validationSchema = yup.object().shape({
   children: yup.array().of(
     yup.object().shape({
-      name: yup.string().required('Required'),
-      age: yup.string().required('Required'),
-      grade: yup.string().required('Required'),
-      school_name: yup.string().required('Required'),
+      name: yup.string().required('Child Name is required'),
+      age: yup.string().required('Age is required'),
+      grade: yup.string().required('Grade is required'),
+      school_name: yup.string().required('School name is required'),
     })
   ),
 })
@@ -132,7 +132,7 @@ const ScheduleLessonFormStepThree = (props) => {
                           label={contentForm.child_name_field}
                           type="text"
                           value={field.value}
-                          placeholder="Komang Wisnu..."
+                          placeholder="Child Name"
                           onChange={(e) => {
                             field.onChange(e.target.value)
                           }}
@@ -152,7 +152,7 @@ const ScheduleLessonFormStepThree = (props) => {
                           label={contentForm.age_field}
                           type="number"
                           value={field.value}
-                          placeholder="7..."
+                          placeholder="7"
                           onChange={(e) => {
                             field.onChange(e.target.value)
                           }}
@@ -170,7 +170,7 @@ const ScheduleLessonFormStepThree = (props) => {
                         <LabeledInput
                           label={contentForm.grade_field}
                           value={field.grade}
-                          placeholder="2..."
+                          placeholder="2"
                           onChange={(e) => {
                             field.onChange(e.target.value)
                           }}
@@ -190,7 +190,7 @@ const ScheduleLessonFormStepThree = (props) => {
                           label={contentForm.school_name_field}
                           type="text"
                           value={field.value}
-                          placeholder="International School.."
+                          placeholder="School Name"
                           onChange={(e) => {
                             field.onChange(e.target.value)
                           }}

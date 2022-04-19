@@ -1,6 +1,4 @@
-from datetime import timedelta
-from kidsloop_indonesia_b2c_automation.email_service.emails import Email
-from kidsloop_indonesia_b2c_automation.qontak_gateway import tasks as qontak_tasks
+from kidsloop_indonesia_b2c_automation.email_service.emails import ScheduleRegisterEmail
 from kidsloop_indonesia_b2c_automation.qontak_gateway.api_requests import (
     WhatsappMessage,
 )
@@ -41,7 +39,7 @@ def switch_strapi_cms_callback(callback_data):
         )
         print(f"qontak send_signup_info status: {r.json()['status']}")
 
-        email = Email()
+        email = ScheduleRegisterEmail()
         email.send_email_new_register_to_sales(callback_data)
         print(f"ses send_email_new_register_to_sales sent")
     elif event == "entry.update" and status == "interested":

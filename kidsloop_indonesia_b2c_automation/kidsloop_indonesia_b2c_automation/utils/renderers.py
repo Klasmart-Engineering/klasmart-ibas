@@ -11,7 +11,7 @@ def render_date_time(date: str, time: str):
     return t.render(c)
 
 
-def render_new_schedule_register(callback_data):
+def render_schedule_callback_detail(callback_data):
     date = callback_data["entry"]["date"]
     time = callback_data["entry"]["time"]
     datetime_object = datetime.strptime(f"{date} {time}", "%Y-%m-%d  %H:%M:%S")

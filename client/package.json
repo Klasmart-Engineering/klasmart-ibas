@@ -29,7 +29,7 @@
     "immer": "^9.0.6",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "next": "12.1.0",
     "next-cookies": "^2.0.3",
     "next-themes": "^0.0.14",

@@ -17,7 +17,7 @@
     "mime-types": "^2.1.27",
     "pg": "^8.7.1",
     "pg-connection-string": "^2.5.0",
-    "strapi": "3.6.9",
+    "strapi": "3.6.10",
     "strapi-admin": "3.6.9",
     "strapi-connector-bookshelf": "3.6.9",
     "strapi-plugin-content-manager": "3.6.9",

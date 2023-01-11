@@ -13,7 +13,7 @@
   "dependencies": {
     "immer": "9.0.6",
     "json2csv": "^5.0.6",
-    "knex": "0.21.18",
+    "knex": "2.4.0",
     "mime-types": "^2.1.27",
     "pg": "^8.7.1",
     "pg-connection-string": "^2.5.0",
